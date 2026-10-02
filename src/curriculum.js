@@ -1,4 +1,4 @@
-import { CURRICULUM_PT_EXTRA } from "./curriculum_PT_extra";
+import { CURRICULUM_PT_EXTRA } from "./curriculum_PT_PT_extra";
 
 export const REFERENCE = {
   pronouns: {
