@@ -890,6 +890,14 @@ const LISTENING_RECS = {
 
 export default function App() {
   const [authUser, setAuthUser]             = useState(null);
+  const [learnLang, setLearnLang]           = useState(() => {
+    const saved = localStorage.getItem("pipaakd_learn_lang");
+    return saved || null;
+  });
+  const [nativeLang, setNativeLang]         = useState(() => {
+    const saved = localStorage.getItem("pipaakd_native_lang");
+    return saved || "pt-BR";
+  });
   const [authLoading, setAuthLoading]       = useState(true);
   const [authScreen, setAuthScreen]         = useState("login"); // "login" | "register"
   const [authEmail, setAuthEmail]           = useState("");
@@ -1556,6 +1564,61 @@ REGLAS ABSOLUTAS:
               </p>
             )}
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ── Pantalla de selección de idioma ────────────────────────
+  if (authUser && !learnLang) {
+    const ui = UI_TEXTS[nativeLang] || UI_TEXTS["pt-BR"];
+    return (
+      <div style={{fontFamily:"var(--font-sans)", minHeight:"100vh", background:"#0B0B0A", display:"flex", flexDirection:"column", justifyContent:"center", padding:"2rem 1.5rem"}}>
+        <div style={{maxWidth:480, margin:"0 auto", width:"100%"}}>
+          {/* Logo */}
+          <div style={{textAlign:"center", marginBottom:32}}>
+            <div style={{fontSize:48, marginBottom:12}}>📚</div>
+            <h1 style={{fontSize:24, fontWeight:800, color:"#F5F5F0", margin:"0 0 6px", letterSpacing:"-0.02em"}}>Pipa Akd</h1>
+            <p style={{fontSize:13, color:"#6E6C66", margin:0}}>Escola de Idiomas · Grátis · Do A1 ao Master</p>
+          </div>
+
+          {/* Selector idioma nativo */}
+          <div style={{marginBottom:24}}>
+            <p style={{fontSize:12, fontWeight:600, color:"#6E6C66", textTransform:"uppercase", letterSpacing:"0.05em", marginBottom:10}}>Meu idioma é</p>
+            <div style={{display:"flex", gap:8}}>
+              {LANGUAGES.native.map(lang => (
+                <button key={lang.id} onClick={() => { setNativeLang(lang.id); localStorage.setItem("pipaakd_native_lang", lang.id); }} style={{flex:1, padding:"10px 8px", border:`1.5px solid ${nativeLang===lang.id?"#F5F5F0":"rgba(255,255,255,0.1)"}`, borderRadius:10, background:nativeLang===lang.id?"rgba(255,255,255,0.1)":"transparent", color:"#F5F5F0", fontSize:13, cursor:"pointer", fontFamily:"var(--font-sans)", display:"flex", flexDirection:"column", alignItems:"center", gap:4}}>
+                  <span style={{fontSize:20}}>{lang.flag}</span>
+                  <span style={{fontSize:11, fontWeight:500}}>{lang.name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Selector idioma a aprender */}
+          <div style={{marginBottom:28}}>
+            <p style={{fontSize:12, fontWeight:600, color:"#6E6C66", textTransform:"uppercase", letterSpacing:"0.05em", marginBottom:10}}>
+              {(UI_TEXTS[nativeLang]||UI_TEXTS["pt-BR"]).chooseLearn}
+            </p>
+            <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:10}}>
+              {LANGUAGES.learn.map(lang => (
+                <button key={lang.id} onClick={() => { if(!lang.available) return; setLearnLang(lang.id); localStorage.setItem("pipaakd_learn_lang", lang.id); }} style={{padding:"14px 12px", border:`1.5px solid ${!lang.available?"rgba(255,255,255,0.06)":"rgba(255,255,255,0.15)"}`, borderRadius:12, background:!lang.available?"rgba(255,255,255,0.02)":"rgba(255,255,255,0.06)", color:!lang.available?"#3A3A38":"#F5F5F0", cursor:lang.available?"pointer":"not-allowed", fontFamily:"var(--font-sans)", textAlign:"left", position:"relative"}}>
+                  <div style={{fontSize:24, marginBottom:6}}>{lang.flag}</div>
+                  <div style={{fontSize:14, fontWeight:700, marginBottom:2, color:lang.available?lang.color:"#3A3A38"}}>{lang.name}</div>
+                  <div style={{fontSize:11, color:!lang.available?"#3A3A38":"#6E6C66", lineHeight:1.4}}>{lang.description}</div>
+                  {lang.comingSoon && (
+                    <div style={{position:"absolute", top:8, right:8, background:"rgba(255,255,255,0.08)", borderRadius:99, padding:"2px 8px", fontSize:9, color:"#6E6C66", fontWeight:600}}>
+                      {(UI_TEXTS[nativeLang]||UI_TEXTS["pt-BR"]).comingSoon}
+                    </div>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <p style={{fontSize:11, color:"#3A3A38", textAlign:"center"}}>
+            {(UI_TEXTS[nativeLang]||UI_TEXTS["pt-BR"]).tagline}
+          </p>
         </div>
       </div>
     );
