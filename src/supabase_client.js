@@ -1,4 +1,4 @@
-// Supabase client — Pipa Akd
+// Supabase client — Pipa Akd Escola
 import { createClient } from "@supabase/supabase-js";
 
 const SUPABASE_URL = "https://xvxmiorluyzoropjnvbm.supabase.co";
