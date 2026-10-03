@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { LANGUAGES, UI_TEXTS } from "./language_config.js";
 import { supabase } from "./supabase_client.js";
 import { CURRICULUM, REFERENCE } from "./curriculum.js";
 import { AULAS_TEORICAS } from "./aulas_teoricas.js";
