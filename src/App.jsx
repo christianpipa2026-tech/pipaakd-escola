@@ -1580,12 +1580,12 @@ REGLAS ABSOLUTAS:
           <div style={{textAlign:"center", marginBottom:32}}>
             <div style={{fontSize:48, marginBottom:12}}>📚</div>
             <h1 style={{fontSize:24, fontWeight:800, color:"#F5F5F0", margin:"0 0 6px", letterSpacing:"-0.02em"}}>Pipa Akd</h1>
-            <p style={{fontSize:13, color:"#6E6C66", margin:0}}>Escola de Idiomas · Grátis · Do A1 ao Master</p>
+            <p style={{fontSize:13, color:"#6E6C66", margin:0}}>{(UI_TEXTS[nativeLang]||UI_TEXTS["pt-BR"]).subtitle}</p>
           </div>
 
           {/* Selector idioma nativo */}
           <div style={{marginBottom:24}}>
-            <p style={{fontSize:12, fontWeight:600, color:"#6E6C66", textTransform:"uppercase", letterSpacing:"0.05em", marginBottom:10}}>Meu idioma é</p>
+            <p style={{fontSize:12, fontWeight:600, color:"#6E6C66", textTransform:"uppercase", letterSpacing:"0.05em", marginBottom:10}}>{(UI_TEXTS[nativeLang]||UI_TEXTS["pt-BR"]).chooseNative}</p>
             <div style={{display:"flex", gap:8}}>
               {LANGUAGES.native.map(lang => (
                 <button key={lang.id} onClick={() => { setNativeLang(lang.id); localStorage.setItem("pipaakd_native_lang", lang.id); }} style={{flex:1, padding:"10px 8px", border:`1.5px solid ${nativeLang===lang.id?"#F5F5F0":"rgba(255,255,255,0.1)"}`, borderRadius:10, background:nativeLang===lang.id?"rgba(255,255,255,0.1)":"transparent", color:"#F5F5F0", fontSize:13, cursor:"pointer", fontFamily:"var(--font-sans)", display:"flex", flexDirection:"column", alignItems:"center", gap:4}}>
