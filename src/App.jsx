@@ -1763,6 +1763,7 @@ REGLAS ABSOLUTAS:
         {/* Barra superior con email y botón salir */}
         <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"8px 4px", marginBottom:8}}>
           <span style={{fontSize:11, color:"var(--color-text-tertiary)"}}>{authUser?.email}</span>
+          <button onClick={handleChangeLang} style={{fontSize:11, color:"var(--color-text-secondary)", background:"var(--color-background-secondary)", border:"0.5px solid var(--color-border-secondary)", borderRadius:6, padding:"4px 10px", cursor:"pointer", fontFamily:"var(--font-sans)", marginRight:6}}>🌐 Idioma</button>
           <button onClick={handleLogout} style={{fontSize:11, color:"var(--color-text-secondary)", background:"var(--color-background-secondary)", border:"0.5px solid var(--color-border-secondary)", borderRadius:6, padding:"4px 10px", cursor:"pointer", fontFamily:"var(--font-sans)"}}>Salir</button>
         </div>
         <div style={{background:"linear-gradient(135deg, var(--color-accent), var(--color-accent-dark))", borderRadius:20, padding:"18px 20px 22px", marginBottom:16}}>
@@ -1873,6 +1874,7 @@ REGLAS ABSOLUTAS:
         {/* Barra superior con email y botón salir */}
         <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"8px 4px", marginBottom:8}}>
           <span style={{fontSize:11, color:"var(--color-text-tertiary)"}}>{authUser?.email}</span>
+          <button onClick={handleChangeLang} style={{fontSize:11, color:"var(--color-text-secondary)", background:"var(--color-background-secondary)", border:"0.5px solid var(--color-border-secondary)", borderRadius:6, padding:"4px 10px", cursor:"pointer", fontFamily:"var(--font-sans)", marginRight:6}}>🌐 Idioma</button>
           <button onClick={handleLogout} style={{fontSize:11, color:"var(--color-text-secondary)", background:"var(--color-background-secondary)", border:"0.5px solid var(--color-border-secondary)", borderRadius:6, padding:"4px 10px", cursor:"pointer", fontFamily:"var(--font-sans)"}}>Salir</button>
         </div>
         <div style={{background:"linear-gradient(135deg, var(--color-accent), var(--color-accent-dark))", borderRadius:20, padding:"18px 20px 22px", marginBottom:16}}>
