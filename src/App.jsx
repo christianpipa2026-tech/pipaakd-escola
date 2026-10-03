@@ -1056,6 +1056,11 @@ export default function App() {
     setAuthUser(null);
   };
 
+  const handleChangeLang = () => {
+    setLearnLang(null);
+    localStorage.removeItem("pipaakd_learn_lang");
+  };
+
   const [onboardStep, setOnboardStep]     = useState(0);
   const [streak, setStreak]               = useState(() => {
     const s = load("streak", { count: 0, lastDate: null });
