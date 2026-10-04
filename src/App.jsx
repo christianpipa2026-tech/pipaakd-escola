@@ -1610,10 +1610,10 @@ REGLAS ABSOLUTAS:
               {LANGUAGES.learn.map(lang => (
                 <button key={lang.id} onClick={() => { if(!lang.available) return; setLearnLang(lang.id); localStorage.setItem("pipaakd_learn_lang", lang.id); }} style={{padding:"14px 12px", border:`1.5px solid ${!lang.available?"var(--color-border-secondary)":"var(--color-border-secondary)"}`, borderRadius:12, background:!lang.available?"var(--color-background-secondary)":"var(--color-background-secondary)", color:!lang.available?"var(--color-text-tertiary)":"var(--color-text-primary)", cursor:lang.available?"pointer":"not-allowed", fontFamily:"var(--font-sans)", textAlign:"left", position:"relative"}}>
                   <div style={{fontSize:24, marginBottom:6}}>{lang.flag}</div>
-                  <div style={{fontSize:14, fontWeight:700, marginBottom:2, color:lang.available?lang.color:"#3A3A38"}}>{lang.name}</div>
+                  <div style={{fontSize:14, fontWeight:700, marginBottom:2, color:lang.available?lang.color:"var(--color-text-tertiary)"}}>{lang.name}</div>
                   <div style={{fontSize:11, color:!lang.available?"#3A3A38":"#6E6C66", lineHeight:1.4}}>{lang.description}</div>
                   {lang.comingSoon && (
-                    <div style={{position:"absolute", top:8, right:8, background:"rgba(255,255,255,0.08)", borderRadius:99, padding:"2px 8px", fontSize:9, color:"#6E6C66", fontWeight:600}}>
+                    <div style={{position:"absolute", top:8, right:8, background:"rgba(255,255,255,0.08)", borderRadius:99, padding:"2px 8px", fontSize:9, color:"var(--color-text-secondary)", fontWeight:600}}>
                       {(UI_TEXTS[nativeLang]||UI_TEXTS["pt-BR"]).comingSoon}
                     </div>
                   )}
