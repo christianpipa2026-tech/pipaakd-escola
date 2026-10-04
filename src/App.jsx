@@ -1579,21 +1579,21 @@ REGLAS ABSOLUTAS:
   if (authUser && !learnLang) {
     const ui = UI_TEXTS[nativeLang] || UI_TEXTS["pt-BR"];
     return (
-      <div style={{fontFamily:"var(--font-sans)", minHeight:"100vh", background:"#0B0B0A", display:"flex", flexDirection:"column", justifyContent:"center", padding:"2rem 1.5rem"}}>
+      <div style={{fontFamily:"var(--font-sans)", minHeight:"100vh", background:"var(--color-background-primary)", display:"flex", flexDirection:"column", justifyContent:"center", padding:"2rem 1.5rem"}}>
         <div style={{maxWidth:480, margin:"0 auto", width:"100%"}}>
           {/* Logo */}
           <div style={{textAlign:"center", marginBottom:32}}>
             <div style={{fontSize:48, marginBottom:12}}>📚</div>
-            <h1 style={{fontSize:24, fontWeight:800, color:"#F5F5F0", margin:"0 0 6px", letterSpacing:"-0.02em"}}>Pipa Akd</h1>
-            <p style={{fontSize:13, color:"#6E6C66", margin:0}}>{(UI_TEXTS[nativeLang]||UI_TEXTS["pt-BR"]).subtitle}</p>
+            <h1 style={{fontSize:24, fontWeight:800, color:"var(--color-text-primary)", margin:"0 0 6px", letterSpacing:"-0.02em"}}>Pipa Akd</h1>
+            <p style={{fontSize:13, color:"var(--color-text-secondary)", margin:0}}>{(UI_TEXTS[nativeLang]||UI_TEXTS["pt-BR"]).subtitle}</p>
           </div>
 
           {/* Selector idioma nativo */}
           <div style={{marginBottom:24}}>
-            <p style={{fontSize:12, fontWeight:600, color:"#6E6C66", textTransform:"uppercase", letterSpacing:"0.05em", marginBottom:10}}>{(UI_TEXTS[nativeLang]||UI_TEXTS["pt-BR"]).chooseNative}</p>
+            <p style={{fontSize:12, fontWeight:600, color:"var(--color-text-secondary)", textTransform:"uppercase", letterSpacing:"0.05em", marginBottom:10}}>{(UI_TEXTS[nativeLang]||UI_TEXTS["pt-BR"]).chooseNative}</p>
             <div style={{display:"flex", gap:8}}>
               {LANGUAGES.native.map(lang => (
-                <button key={lang.id} onClick={() => { setNativeLang(lang.id); localStorage.setItem("pipaakd_native_lang", lang.id); }} style={{flex:1, padding:"10px 8px", border:`1.5px solid ${nativeLang===lang.id?"#F5F5F0":"rgba(255,255,255,0.1)"}`, borderRadius:10, background:nativeLang===lang.id?"rgba(255,255,255,0.1)":"transparent", color:"#F5F5F0", fontSize:13, cursor:"pointer", fontFamily:"var(--font-sans)", display:"flex", flexDirection:"column", alignItems:"center", gap:4}}>
+                <button key={lang.id} onClick={() => { setNativeLang(lang.id); localStorage.setItem("pipaakd_native_lang", lang.id); }} style={{flex:1, padding:"10px 8px", border:`1.5px solid ${nativeLang===lang.id?"var(--color-accent)":"var(--color-border-secondary)"}`, borderRadius:10, background:nativeLang===lang.id?"var(--bg-accent)":"var(--color-background-secondary)", color:"var(--color-text-primary)", fontSize:13, cursor:"pointer", fontFamily:"var(--font-sans)", display:"flex", flexDirection:"column", alignItems:"center", gap:4}}>
                   <span style={{fontSize:20}}>{lang.flag}</span>
                   <span style={{fontSize:11, fontWeight:500}}>{lang.name}</span>
                 </button>
@@ -1603,12 +1603,12 @@ REGLAS ABSOLUTAS:
 
           {/* Selector idioma a aprender */}
           <div style={{marginBottom:28}}>
-            <p style={{fontSize:12, fontWeight:600, color:"#6E6C66", textTransform:"uppercase", letterSpacing:"0.05em", marginBottom:10}}>
+            <p style={{fontSize:12, fontWeight:600, color:"var(--color-text-secondary)", textTransform:"uppercase", letterSpacing:"0.05em", marginBottom:10}}>
               {(UI_TEXTS[nativeLang]||UI_TEXTS["pt-BR"]).chooseLearn}
             </p>
             <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:10}}>
               {LANGUAGES.learn.map(lang => (
-                <button key={lang.id} onClick={() => { if(!lang.available) return; setLearnLang(lang.id); localStorage.setItem("pipaakd_learn_lang", lang.id); }} style={{padding:"14px 12px", border:`1.5px solid ${!lang.available?"rgba(255,255,255,0.06)":"rgba(255,255,255,0.15)"}`, borderRadius:12, background:!lang.available?"rgba(255,255,255,0.02)":"rgba(255,255,255,0.06)", color:!lang.available?"#3A3A38":"#F5F5F0", cursor:lang.available?"pointer":"not-allowed", fontFamily:"var(--font-sans)", textAlign:"left", position:"relative"}}>
+                <button key={lang.id} onClick={() => { if(!lang.available) return; setLearnLang(lang.id); localStorage.setItem("pipaakd_learn_lang", lang.id); }} style={{padding:"14px 12px", border:`1.5px solid ${!lang.available?"var(--color-border-secondary)":"var(--color-border-secondary)"}`, borderRadius:12, background:!lang.available?"var(--color-background-secondary)":"var(--color-background-secondary)", color:!lang.available?"var(--color-text-tertiary)":"var(--color-text-primary)", cursor:lang.available?"pointer":"not-allowed", fontFamily:"var(--font-sans)", textAlign:"left", position:"relative"}}>
                   <div style={{fontSize:24, marginBottom:6}}>{lang.flag}</div>
                   <div style={{fontSize:14, fontWeight:700, marginBottom:2, color:lang.available?lang.color:"#3A3A38"}}>{lang.name}</div>
                   <div style={{fontSize:11, color:!lang.available?"#3A3A38":"#6E6C66", lineHeight:1.4}}>{lang.description}</div>
@@ -1622,7 +1622,7 @@ REGLAS ABSOLUTAS:
             </div>
           </div>
 
-          <p style={{fontSize:11, color:"#3A3A38", textAlign:"center"}}>
+          <p style={{fontSize:11, color:"var(--color-text-secondary)", textAlign:"center"}}>
             {(UI_TEXTS[nativeLang]||UI_TEXTS["pt-BR"]).tagline}
           </p>
         </div>
@@ -1880,7 +1880,7 @@ REGLAS ABSOLUTAS:
         <div style={{background:"linear-gradient(135deg, var(--color-accent), var(--color-accent-dark))", borderRadius:20, padding:"18px 20px 22px", marginBottom:16}}>
           <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:14, flexWrap:"wrap", gap:10}}>
             <div>
-              <p style={{fontSize:11, fontWeight:700, color:"rgba(255,255,255,0.75)", letterSpacing:"0.08em", textTransform:"uppercase", margin:"0 0 4px"}}>Pipa Akd — Espanhol</p>
+              <p style={{fontSize:11, fontWeight:700, color:"rgba(255,255,255,0.75)", letterSpacing:"0.08em", textTransform:"uppercase", margin:"0 0 4px"}}>{learnLang === "pt" ? "Pipa Akd — Português" : learnLang === "en" ? "Pipa Akd — English" : "Pipa Akd — Español"}</p>
               <p style={{fontSize:19, fontWeight:700, color:"#fff", margin:0, letterSpacing:"-0.02em"}}>Nível de Espanhol {assignedLevel}</p>
             </div>
             <div style={{display:"flex", alignItems:"center", gap:8, flexWrap:"wrap"}}>
