@@ -1683,10 +1683,10 @@ REGLAS ABSOLUTAS:
             <span style={{fontSize:34}}>🇧🇷</span>
           </div>
           <h1 style={{fontSize:27, fontWeight:800, color:"var(--color-text-primary)", margin:"0 0 8px", letterSpacing:"-0.02em"}}>
-            Pipa Akd — Aprenda Español
+            {learnLang === "pt" ? "Pipa Akd — Aprenda Português" : learnLang === "en" ? "Pipa Akd — Learn English" : "Pipa Akd — Aprende Español"}
           </h1>
           <p style={{fontSize:15, color:"var(--color-text-secondary)", margin:0, lineHeight:1.5}}>
-            Do zero à fluência real.<br/>A1 → Master.
+            {learnLang === "pt" ? "Do zero à fluência real. A1 → Master." : learnLang === "en" ? "From zero to fluency. A1 → Master." : "De cero a la fluidez real. A1 → Master."}
           </p>
         </div>
 
