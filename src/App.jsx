@@ -1881,7 +1881,7 @@ REGLAS ABSOLUTAS:
           <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:14, flexWrap:"wrap", gap:10}}>
             <div>
               <p style={{fontSize:11, fontWeight:700, color:"rgba(255,255,255,0.75)", letterSpacing:"0.08em", textTransform:"uppercase", margin:"0 0 4px"}}>{learnLang === "pt" ? "Pipa Akd — Português" : learnLang === "en" ? "Pipa Akd — English" : "Pipa Akd — Español"}</p>
-              <p style={{fontSize:19, fontWeight:700, color:"#fff", margin:0, letterSpacing:"-0.02em"}}>Nível de Espanhol {assignedLevel}</p>
+              <p style={{fontSize:19, fontWeight:700, color:"#fff", margin:0, letterSpacing:"-0.02em"}}>{learnLang === "pt" ? "Nível de Português" : learnLang === "en" ? "English Level" : "Nivel de Español"} {assignedLevel}</p>
             </div>
             <div style={{display:"flex", alignItems:"center", gap:8, flexWrap:"wrap"}}>
               {streak.count > 0 && (
